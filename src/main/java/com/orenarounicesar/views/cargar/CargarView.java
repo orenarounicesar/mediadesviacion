@@ -28,24 +28,25 @@ public class CargarView extends VerticalLayout {
         MemoryBuffer memoryBuffer = new MemoryBuffer();
         upload = new Upload(memoryBuffer);
         upload.addSucceededListener(event -> {
-            // Get information about the uploaded file
             InputStream fileData = memoryBuffer.getInputStream();
-            // String fileName = event.getFileName();
-            // long contentLength = event.getContentLength();
-            // String mimeType = event.getMIMEType();
             listas = SeveralProcesses.getListas(fileData);
-            txaInfo.setValue("Valores Cargados:\n" + listas.toString());
+            txaInfo.setValue("Valores Cargados:\n" + listas.toString()
+                + "\n\nValores Esperados:\nMedia:"
+                + "\nLista1: 550.6"
+                + "\nLista1: 60.32"
+                + "\nDesviación Estandar:"
+                + "\nLista1: 572.03"
+                + "\nLista1: 62.26"
+            );
 
-            txaInfo.setValue(txaInfo.getValue() + "\n\nMedia:"
+            txaInfo.setValue(txaInfo.getValue() + "\n\nValores Actuales\nMedia:"
                 + "\nLista1: " + SeveralProcesses.calcularMedia(listas.getLista1())
                 + "\nLista2: " + SeveralProcesses.calcularMedia(listas.getLista2())
-                + "\n\nDesviación Estandar:"
+                + "\nDesviación Estandar:"
                 + "\nLista1: " + SeveralProcesses.calcularDesviacionEstandar(listas.getLista1())
                 + "\nLista2: " + SeveralProcesses.calcularDesviacionEstandar(listas.getLista2())
                 );
         
-            // Do something with the file data
-            // processFile(fileData, fileName, contentLength, mimeType);
         });
         
 

@@ -1,7 +1,7 @@
 package com.orenarounicesar.views;
 
 
-import com.orenarounicesar.views.about.AboutView;
+import com.orenarounicesar.views.about.ContadorView;
 import com.orenarounicesar.views.cargar.CargarView;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.applayout.AppLayout;
@@ -115,9 +115,9 @@ public class MainLayout extends AppLayout {
 
     private MenuItemInfo[] createMenuItems() {
         return new MenuItemInfo[]{ //
-                new MenuItemInfo("Cargar", "la la-upload", CargarView.class), //
+                new MenuItemInfo("Media y Desviación Estandar", "la la-upload", CargarView.class), //
 
-                new MenuItemInfo("About", "la la-file", AboutView.class), //
+                new MenuItemInfo("Contador de Código Fuente", "la la-upload", ContadorView.class), //
 
         };
     }
